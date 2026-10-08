@@ -722,8 +722,7 @@ p {
   width: 100%;
 }
 
-/* 4K */
-
+/* 4K (2560px) */
 @media screen and (min-width: 2560px) {
   .section,
   .header {
@@ -740,8 +739,7 @@ p {
   }
 }
 
-/* Laptop L */
-
+/* Laptop L (1440px) */
 @media screen and (min-width: 1440px) {
   .section,
   .header {
@@ -749,8 +747,7 @@ p {
   }
 }
 
-/* Десктоп */
-
+/* Десктоп (1025px+) */
 @media screen and (min-width: 1025px) {
   .header .header__right,
   .header .header__right.hidden {
@@ -795,8 +792,7 @@ p {
   }
 }
 
-/* Планшет */
-
+/* Планшет (1024px) */
 @media screen and (max-width: 1024px) {
   .page {
     align-content: center;
@@ -805,6 +801,9 @@ p {
   .header {
     width: calc(100% - 4rem);
     padding: 2rem;
+    left: 0;
+    transform: none;
+    max-width: none;
   }
 
   .header .header__logo .logo__link img {
@@ -953,8 +952,7 @@ p {
   }
 }
 
-/* Планшет / небольшой экран */
-
+/* Планшет малый / большой мобильный (766px) */
 @media screen and (max-width: 766px) {
   p {
     font-size: 14px;
@@ -973,8 +971,16 @@ p {
     font-size: 19px;
   }
 
+  a {
+    font-size: 12px;
+  }
+
   .hero_section {
     width: 100%;
+  }
+
+  .hero_section .hero_section__left .left__cta_buttons input[type="text"] {
+    min-width: auto;
   }
 
   .brands_section {
@@ -1013,51 +1019,6 @@ p {
     line-height: 1.5;
   }
 
-  .blog_section_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .blog_card_large {
-    grid-column: auto;
-  }
-
-  .footer_container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer_column {
-    align-items: center;
-  }
-
-  .step_future_section_header {
-    font-size: 42px;
-  }
-}
-
-/* Мобильный */
-
-@media screen and (max-width: 765px) {
-  a {
-    font-size: 12px;
-  }
-
-  p {
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
-  h2 {
-    font-size: 19px;
-  }
-
-  .hero_section .hero_section__left .left__cta_buttons input[type="text"] {
-    min-width: auto;
-  }
-
   .future_here {
     row-gap: 3rem;
   }
@@ -1074,10 +1035,43 @@ p {
   .future_here .future_here__right {
     row-gap: 2rem;
   }
+
+  /* Блог - 1 колонка, без растягивания */
+  .blog_section_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog_card_large {
+    grid-column: auto;
+    grid-row: auto;
+    height: auto;
+  }
+
+  .blog_card_large .blog_card_image {
+    height: 200px;
+  }
+
+  .blog_section_header {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  /* Футер - 1 колонка */
+  .footer_container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer_column {
+    align-items: center;
+  }
+
+  .step_future_section_header {
+    font-size: 42px;
+  }
 }
 
-/* Маленький мобильный */
-
+/* Маленький мобильный (425px) */
 @media screen and (max-width: 425px) {
   .hero_section .hero_section__left .left__header {
     font-size: 36px;
@@ -1101,95 +1095,15 @@ p {
   }
 
   .purple_banner {
-    padding: 2rem;
+    padding: 2rem 1rem;
     margin: 4rem 0;
   }
 }
 
-/* Исправления расположения страницы после переноса HTML в JS */
+/* Фиксация шапки */
 .header {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-}
-
-@media screen and (min-width: 1440px) {
-  .section,
-  .header {
-    max-width: 1300px;
-  }
-}
-
-@media screen and (min-width: 2560px) {
-  .section,
-  .header {
-    max-width: 1800px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .header {
-    left: 0;
-    transform: none;
-    width: 100%;
-    max-width: none;
-  }
-
-  .vr_section {
-    flex-direction: column;
-    padding: 0 2rem;
-  }
-
-  .vr_section_image {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .vr_section_content {
-    margin-top: 2rem;
-  }
-
-  .purple_banner_content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .purple_banner_btn {
-    margin-left: 0;
-  }
-
-  .purple_banner {
-    padding: 2rem;
-    margin: 4rem 0;
-  }
-
-  .blog_section_grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .blog_card_large {
-    grid-column: span 2;
-    grid-row: auto;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 766px) {
-  .blog_section_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .purple_banner {
-    margin: 4rem 0;
-    padding: 2rem 1rem;
-  }
 }
